@@ -1,28 +1,18 @@
 #include <iostream>
 using namespace std;
-
-
-
 bool BinarySearch(int arr[],int start, int end, int key){
 
     int mid = start + ((end-start)/2);
-
-
     // Base case 
-     if(start > end)
-        return false;
-
+     if(start > end) return false;
+    
      // Founded the element 
      if(arr[mid] == key)
         return true;
-
     if (arr[mid] < key)
-    {
-      return BinarySearch(arr,mid+1,end , key);
-    }
-    else{
+        return BinarySearch(arr,mid+1,end , key);
+    else
         return BinarySearch(arr,start,mid-1,key);
-    }
 }
 
 int main(){
