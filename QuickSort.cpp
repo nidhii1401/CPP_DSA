@@ -12,7 +12,7 @@ int Partition(int *arr,int s, int e){
         int PivotIndex = s+cnt;
         swap(arr[s],arr[PivotIndex]);
 
-        // Left and right array ko sambhal lete hai
+        // Handling Left and right sub-array 
 
         int a=s, b=e;
         while(a < PivotIndex && b > PivotIndex){
@@ -27,22 +27,16 @@ int Partition(int *arr,int s, int e){
                 swap(arr[a++],arr[b--]);
             }
         }
-
     return PivotIndex;
-    
-
-
 }
 
 void QuickSort(int *arr,int s,int e ){
 
     //Base Case
-    if(s>=e){
-        return;
-    }
+    if(s>=e) return;
+    
     //partion krdo
     int p = Partition(arr,s,e);
-
     // Recursive Calls
     QuickSort(arr,s,p-1);
     QuickSort(arr,p+1,e);
@@ -51,7 +45,6 @@ void QuickSort(int *arr,int s,int e ){
 }
 
 int main(){
-
     int arr[7] = {34,45,2,31,67,89,4};
     int n =7;
 
